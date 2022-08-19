@@ -1,39 +1,39 @@
 import "./categories.styles.scss";
+import CategoryItem from "./components/category-item/category-item.component";
 
 const App = () => {
   const categories = [
     {
       id: 1,
-      title: "Hats",
+      title: "hats",
+      imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
     },
     {
       id: 2,
-      title: "Jackets",
+      title: "jackets",
+      imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
     },
     {
-      id: 2,
-      title: "Sneakers",
+      id: 3,
+      title: "sneakers",
+      imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
     },
     {
-      id: 1,
-      title: "Womans",
+      id: 4,
+      title: "womens",
+      imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
     },
     {
-      id: 1,
-      title: "Mens",
+      id: 5,
+      title: "mens",
+      imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
     },
   ];
+
   return (
     <div className="categories-container">
-      {categories.map(({ title, id }) => (
-        <div  key={id} className="category-container">
-          {/* <div className="background-image">{title}</div> */}
-          {/* <img /> */}
-          <div className="category-body-container">
-            <h2>{title}</h2>
-            <p>Shop Now</p>
-          </div>
-        </div>
+      {categories.map((category) => (
+        <CategoryItem key={category.id} category={category} />
       ))}
     </div>
   );

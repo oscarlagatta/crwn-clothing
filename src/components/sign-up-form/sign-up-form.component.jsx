@@ -5,6 +5,9 @@ import {
 } from "../../utils/firebase/firebase.utils";
 
 import FormInput from "../form-input/form-input.component";
+import Button from "../button/button.component";
+
+import "./sign-up-form.styles.scss";
 
 const defaultFormFields = {
   displayName: "",
@@ -43,7 +46,6 @@ const SignUpForm = () => {
 
       // reset the form fields
       resetFormFields();
-
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         alert("Email already in use");
@@ -59,10 +61,10 @@ const SignUpForm = () => {
   };
 
   return (
-    <div>
-      <h1>Sign up with your email and password</h1>
+    <div className="sign-up-container">
+      <h2>I do not have an account</h2>
+      <span>Sign up with your email and password</span>
       <form onSubmit={handleSubmit}>
-        
         <FormInput
           label="Display Name"
           type="text"
@@ -72,7 +74,6 @@ const SignUpForm = () => {
           value={displayName}
         />
 
-        
         <FormInput
           label="Email"
           type="Email"
@@ -82,7 +83,6 @@ const SignUpForm = () => {
           value={email}
         />
 
-        
         <FormInput
           label="Password"
           type="password"
@@ -92,7 +92,6 @@ const SignUpForm = () => {
           value={password}
         />
 
-        
         <FormInput
           label="Confirm Password"
           type="password"
@@ -102,7 +101,7 @@ const SignUpForm = () => {
           value={confirmPassword}
         />
 
-        <button type="submit">Sign Up</button>
+        <Button type="submit">Sign Up</Button>
       </form>
     </div>
   );

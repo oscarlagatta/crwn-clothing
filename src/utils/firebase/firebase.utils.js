@@ -48,6 +48,7 @@ export const signInWithGoogleRedirect = () =>
 
 export const db = getFirestore();
 
+// import collection to firebase
 export const addCollectionAndDocuments = async (
   collectionKey,
   objectsToAdd

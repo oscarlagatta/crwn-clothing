@@ -7,10 +7,12 @@ import { rootReducer } from "./root-reducer";
 
 import { loggerMiddleware } from "./middleware/logger";
 
+import thunk from "redux-thunk";
+
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: ["user"],
+  whitelist: ["cart"],
 };
 
 // persisted Reducer to use for the store
@@ -18,6 +20,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const middleWares = [
   process.env.NODE_ENV !== "production" && loggerMiddleware,
+  thunk,
 ].filter(Boolean);
 
 const composeEnhancer =

@@ -12,7 +12,7 @@ export const setCurrentUser = (user) =>
   SIGN_IN_FAILURE: "user/SIGN_IN_FAILURE"
    */
 
-export const checkuserSession = () =>
+export const checkUserSession = () =>
   createAction(USER_ACTION_TYPES.CHECK_USER_SESSION);
 
 export const googleSignInStart = () =>
@@ -27,4 +27,15 @@ export const signInSuccess = (user) =>
 export const signInFailed = (error) =>
   createAction(USER_ACTION_TYPES.SIGN_IN_FAILED, error);
 
-  
+export const signUpStart = (email, password, displayName) =>
+  createAction(USER_ACTION_TYPES.SIGN_UP_START, {
+    email,
+    password,
+    displayName,
+  });
+
+export const signUpSuccess = (user, additionalDetails) =>
+  createAction(USER_ACTION_TYPES.SIGN_UP_SUCCESS, { user, additionalDetails });
+
+export const signUpFailed = (error) =>
+  createAction(USER_ACTION_TYPES.SIGN_UP_FAILED, error);
